@@ -7,6 +7,7 @@ Purpose: let you SEE each step of the pipeline (data -> features -> baselines ->
 LightGBM -> backtest -> uplift -> intervals -> stock decision). Numbers come from
 simulated data, so they show how the method behaves, not what your real accuracy will be.
 """
+import warnings
 from pathlib import Path
 
 import lightgbm as lgb
@@ -22,6 +23,7 @@ from mlforecast.utils import PredictionIntervals
 from statsforecast import StatsForecast
 from statsforecast.models import SeasonalNaive
 
+warnings.filterwarnings("ignore")   # hides harmless library notices so beginners see clean output
 OUT = Path(__file__).parent / "figures"
 OUT.mkdir(exist_ok=True)
 H, N_WINDOWS, SEED = 28, 4, 42

@@ -8,19 +8,19 @@ Each file starts with a docstring that explains the task, then functions that ra
 ```bash
 pip install pandas numpy lightgbm mlforecast pytest
 cd practice
-pytest -q                 # at first everything fails with NotImplementedError. That is correct.
+python -m pytest -q                 # at first everything fails with NotImplementedError. That is correct.
 ```
 
 ## How to work
 
 1. Read the exercise docstring. Write on paper what the function must return for a tiny input.
-2. Write your own version. Run `pytest -k ex01 -q` (change the number).
+2. Write your own version. Run `python -m pytest -k ex01 -q` (change the number).
 3. Read the failure message. It names the check that failed. Fix, re-run.
 4. Stuck for more than 20 minutes? Use the hint ladder in Process.md (Module 15), then a precise prompt to an AI tutor.
 5. Only after your tests pass: open `solutions/` and compare. Note one thing the solution does differently.
 6. Write a two-line entry in your error log: what failed, what fixed it.
 
-To check that the solutions themselves pass: `USE_SOLUTIONS=1 pytest -q`.
+To check that the solutions themselves pass: `USE_SOLUTIONS=1 python -m pytest -q`.
 
 ## Map to the course
 

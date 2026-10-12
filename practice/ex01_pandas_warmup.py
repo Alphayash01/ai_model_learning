@@ -18,6 +18,8 @@ def weekday_mean(df: pd.DataFrame) -> pd.Series:
 
     Hint: df["ds"].dt.dayofweek gives the weekday number; then groupby.
     """
+    df["weekday"] = df["ds"].dt.dayofweek
+    return df.groupby("weekday")["y"].mean()
     raise NotImplementedError
 
 
@@ -27,6 +29,10 @@ def add_lag(df: pd.DataFrame, n: int) -> pd.DataFrame:
     The first n rows must be NaN. Do not change the input frame.
     Hint: Series.shift(n)
     """
+    out = df.copy()
+    out[f"lag{n}"] = out["y"].shift(n)
+    return out
+
     raise NotImplementedError
 
 
@@ -36,4 +42,7 @@ def add_rolling_mean(df: pd.DataFrame, window: int) -> pd.DataFrame:
     Today's value must NOT be included (that would leak the answer into the feature).
     Hint: shift by 1 first, then .rolling(window).mean()
     """
+    out = df.copy()
+    out[f"roll{window}"] = out["y"].shift(1).rolling(window).mean()
+    return out
     raise NotImplementedError

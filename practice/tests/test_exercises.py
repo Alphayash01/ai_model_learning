@@ -38,6 +38,10 @@ def test_ex01_lag():
 def test_ex01_rolling_excludes_today():
     df = ex01.make_sales()
     out = ex01.add_rolling_mean(df, 3)
+
+    print(out["roll3"].iloc[0])
+    print(type(out["roll3"].iloc[0]))
+    print(out["roll3"].dtype)
     assert np.isnan(out["roll3"].iloc[0])
     assert out["roll3"].iloc[3] == pytest.approx(np.mean(df["y"].iloc[0:3]))
     df2 = df.copy()
