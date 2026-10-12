@@ -1,0 +1,5 @@
+,Seasonal naive,Base-lift,LightGBM + promo features
+All days,0.3429,0.1817,0.1375
+Promo days,0.4116,0.2172,0.1237
+Post-promo week,0.6507,0.2543,0.1636
+Normal days,0.2813,0.1601,0.1395
